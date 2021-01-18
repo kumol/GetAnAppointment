@@ -28,6 +28,11 @@
                 <input type="text"  v-model="address" class="form-control" id="address" aria-describedby="emailHelp" placeholder="Enter Address">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
+            <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input type="text" v-model="contactNumber" class="form-control" id="id" placeholder="Enter Your Number">
+                <small id="contactNumber" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
             <!-- <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" v-model="password" class="form-control" id="exampleInputPassword1" placeholder="Password">

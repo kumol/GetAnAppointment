@@ -2,13 +2,8 @@
     <form class="row m-0"> 
         <div class="col-md-6 col-sm-6 col-xs-6">
             <div class="form-group">
-                <label for="exampleInputFirstName">First Name</label>
-                <input type="text" v-model="firstName" class="form-control" id="firstName"  placeholder="Enter First Name">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputLastName">Last Name</label>
-                <input type="text" v-model="lastName" class="form-control" id="lastName"  placeholder="Enter Last Name">
+                <label for="name">Name</label>
+                <input type="text" v-model="firstName" class="form-control" id="name"  placeholder="Enter Name">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
@@ -16,17 +11,27 @@
                 <input type="email"  v-model="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
+            <div class="form-group">
+                <label for="Details">Details</label>
+                <input type="text"  v-model="details" class="form-control" id="details" placeholder="Enter Details">
+                <small id="details" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
         </div>
         <div class="col-md-6 m-0 col-sm-6 col-xs-6">
             <div class="form-group">
-                <label for="id">Doctor Id</label>
-                <input type="text" v-model="doctorId" class="form-control" id="id" placeholder="Enter Your Id">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="contactNumber">Contact Number</label>
+                <input type="text" v-model="contactNumber" class="form-control" id="id" placeholder="Enter Your Number">
+                <small id="contactNumber" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
                 <label for="sf">Address</label>
                 <input type="text"  v-model="address" class="form-control" id="address" aria-describedby="emailHelp" placeholder="Enter Address">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="id">Website</label>
+                <input type="text" v-model="website" class="form-control" id="id" placeholder="Enter Your Website">
+                <small id="website" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <!-- <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
@@ -45,41 +50,36 @@ export default {
     name:"AddOrganization",
     data(){
         return{
-            users:[],
-            firstName:"",
-            lastName:"",
             name:"",
             email:"",
-            doctorId: "",
+            doctor: [],
             address: "",
-            college: "",
             contactNumber: "",
-            degrees: null,
-            skill: null,
-            position: "",
-            chembers: null,
-            image: "",
-            appointment: null
+            organization_Id: "",
+            details: "",
+            accountType: 2,
+            website: "",
+            logo: ""
         }
     },
     methods:{
          async submitData(event){
              event.preventDefault()
-             let doctorDetails = {
-                name: this.firstName+ " " + this.lastName,
+             let organizationDetails = {
+                name:this.name,
                 email: this.email,
                 contactNumber : this.contactNumber,
                 address: this.address,
-                accoutTye: 3,
-                doctorId: this.doctorId,
-                image:""
+                accoutTye: 2,
+                website: this.website,
+                logo:""
              }
             fetch(api+"api/organization/save",{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body:JSON.stringify(doctorDetails)
+                body:JSON.stringify(organizationDetails)
             }).then((response)=>{
                 console.log(response);
             })
