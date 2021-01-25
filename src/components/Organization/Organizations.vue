@@ -7,17 +7,17 @@
                     <th scope="col">Doctor Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Details</th>
+                    <th scope="col">Address</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="organization in organizations" :key="organization._id">
-                    <th scope="row">{{organization.name}}</th>
-                    <td>{{organizations.location}}</td>
-                    <td>{{organizations.address}}</td>
-                    <td>{{organizations.details}}</td>
-                    <td><button @click="selectForDelete(organizations._id)" class="btn btn-danger">Delete</button></td>
+                    <th scope="row">{{organization.organization_Id}}</th>
+                    <td>{{organization.name}}</td>
+                    <td>{{organization.email}}</td>
+                    <td>{{organization.address}}</td>
+                    <td><button @click="selectForDelete(organization._id)" class="btn btn-danger">Delete</button></td>
                 </tr>
             </tbody>
         </table>
@@ -46,7 +46,13 @@ export default {
 
         getAllOrganization(){
             axios.get(configapi+"api/organization/").then((response)=>{
-                this.organizations = response.data.result;
+                if(response.status == 200){
+                    this.organizations = response.data.result;
+                    console.log("success");
+                    console.log(this.organizations);
+                }else{
+                    console.log("error occured");
+                }
             });
         }
     }, 

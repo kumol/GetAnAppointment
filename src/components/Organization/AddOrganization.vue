@@ -3,7 +3,7 @@
         <div class="col-md-6 col-sm-6 col-xs-6">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" v-model="firstName" class="form-control" id="name"  placeholder="Enter Name">
+                <input type="text" v-model="name" class="form-control" id="name"  placeholder="Enter Name">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
@@ -38,14 +38,14 @@
                 <input type="password" v-model="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div> -->
         </div>
-        
         <button type="submit" @click="submitData($event)" class="btn btn-primary">Submit</button>
     </form>
 </template>
 <script>
 
 //import axios from 'axios'
-const api = require("../../../public/config.json");
+const api = require("../../../public/config.json").development.api;
+
 export default {
     name:"AddOrganization",
     data(){
@@ -81,6 +81,7 @@ export default {
                 },
                 body:JSON.stringify(organizationDetails)
             }).then((response)=>{
+                console.log("success");
                 console.log(response);
             })
 
