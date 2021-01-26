@@ -19,7 +19,7 @@
                 <input type="text" v-model="doctorName" placeholder="Type Doctor Name" class="input dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 
                 <div class="dropdown-menu doctor-find-menu custom-menu" aria-labelledby="dropdownMenuLink">
-                   <div class="notch"></div>
+                    <div class="notch"></div>
                     <a v-for="doc in filteredCommands" :key="doc._id" @click="selectDoctor($event,doc)" class="dropdown-item">{{doc.name}}</a>
                 </div>
             </div>
@@ -40,7 +40,10 @@
                 <input class="form-control" v-model="date" type="date" placeholder="date input">
             </div>
 
-             <button type="submit" @click="submitData($event)" class="btn btn-primary">Submit</button>
+            <button class="button mr-10 mt-10">Go</button>
+            <button class="button1 mr-10 mt-10">demo</button>
+            <button class="button2 mr-10 mt-10">demo</button>
+             <button type="submit" @click="submitData($event)" class="btn btn-primary mt-10">Submit</button>
             </form>
         </div>
     </div>
