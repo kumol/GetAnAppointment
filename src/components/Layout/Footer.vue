@@ -1,10 +1,12 @@
 <template>
     <div class="site-footer">
         <div class="container">
+            <div style="border-bottom:1px solid #eeeeee;width:100%;margin-bottom: 20px;"></div>
         <div class="row">
+            
           <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
-         <a href="#">Scanfcode</a>.
+            <p class="copyright-text">Copyright &copy; 2020-2021 All Rights Reserved by 
+         <a href="#">KUMOL</a>.
             </p>
           </div>
 
