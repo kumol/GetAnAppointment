@@ -1,6 +1,6 @@
 <template>
-  <div class="nav-border">
-    <nav class="navbar navbar-expand-md">
+  <div class="nav-border row justify-content-between" style="margin:0px;padding:0px" >
+    <nav class="navbar navbar-expand-md ">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,6 +18,29 @@
         </div>
 
     </nav>
+    <div class="col-md-4 col-lg-3 signupdiv">
+      <nav>
+        <ul class="signuplogin">
+          <li class="dropdown"><button class="button2 mr-10" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SignUp</button>
+            <div class="dropdown-menu signupmenu" aria-labelledby="dropdownMenuLink">
+                        <div class="signupnotch"></div>
+                        <div>
+                          <form class="form-group">
+                            <label for="doctor">UserName</label>
+                            <input type="text" name="username" class="input" id=""/>
+                          </form>
+                        </div>
+                    </div>
+          </li>
+          <li class="dropdown"> <button class="button2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LogIn</button>
+            <div class="dropdown-menu signupmenu" aria-labelledby="dropdownMenuLink">
+                        <div class="signupnotch"></div>
+                        
+                    </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
   <div class="body">
     <router-view />
@@ -55,6 +78,7 @@ export default {
   }
 
   .button{
+    cursor: pointer;
     padding: 7px 20px;
     min-width: 100px;
     border: 1px solid white;
@@ -66,6 +90,7 @@ export default {
     outline: none !important;
   }
   .button1{
+    cursor: pointer;
     padding: 7px 20px;
     min-width: 100px;
     border: 1px solid #2195F3;
@@ -77,6 +102,7 @@ export default {
     outline: none !important;
   }
   .button2{
+    cursor: pointer;
     padding: 7px 20px;
     min-width: 100px;
     border: 1px solid #2195F3;
@@ -85,6 +111,18 @@ export default {
     border-radius: 5px;
   }
   .button2:focus{
+    outline: none !important;
+  }
+  .buttondelete{
+    cursor: pointer;
+    padding: 7px 20px;
+    min-width: 100px;
+    border: 1px solid red;
+    background: #eeeeee;
+    color: red;
+    border-radius: 5px;
+  }
+  .buttondelete:focus{
     outline: none !important;
   }
   .nav-border{
@@ -99,30 +137,5 @@ export default {
   .nav-title{
     color:#2195F3 !important;
   }
-  .notch{
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 15px solid #ffffff;
-    margin-top: -23px;
-    margin-left: 150px;
-  }
-  .custom-menu{
-    top: 15px !important;
-    border: 1px solid #eeeeee !important;
-    box-shadow: 1px 1px 15px #eeeeee !important;
-    border-radius: 5px !important;
-  }
-
-  .doctor-find-menu{
-    width: 300px !important;
-  }
-
-  .mt-10{
-    margin-top: 10px;
-  }
-  .mr-10{
-    margin-right: 10px;
-  }
+ 
 </style>

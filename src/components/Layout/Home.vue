@@ -6,24 +6,20 @@
         <div class="col-md-6" style="padding:50px">
             <form>
                 
-
-            <!-- <div class="form-group">
-                
-                <select v-model="doctor" class="form-control" id="doctor">
-                    <option v-for="doc in doctors" :key="doc._id" v-bind:value="{ _id: doc._id }">{{doc.name}}</option>
-                </select>
-            </div> -->
-
-            <div class="dropdown  form-group">
-                <label for="doctor">Select Doctor</label>
-                <input type="text" v-model="doctorName" placeholder="Type Doctor Name" class="input dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                
-                <div class="dropdown-menu doctor-find-menu custom-menu" aria-labelledby="dropdownMenuLink">
-                    <div class="notch"></div>
-                    <a v-for="doc in filteredCommands" :key="doc._id" @click="selectDoctor($event,doc)" class="dropdown-item">{{doc.name}}</a>
+                <div class="dropdown  form-group">
+                    <label for="doctor">Select Doctor</label>
+                    <input type="text" v-model="doctorName" placeholder="Type Doctor Name" class="input form-control dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    
+                    <div class="dropdown-menu doctor-find-menu custom-menu" aria-labelledby="dropdownMenuLink">
+                        <div class="notch1"></div>
+                        <a v-for="doc in filteredCommands" :key="doc._id" @click="selectDoctor($event,doc)" class="dropdown-item">{{doc.name}}</a>
+                    </div>
                 </div>
-            </div>
 
+                <div class="form-group">
+                    <label for="date">Select Date</label>
+                    <input type="date" class="form-control input" v-model="date"/>
+                </div>
             <!-- <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown button
@@ -43,6 +39,7 @@
             <button class="button mr-10 mt-10">Go</button>
             <button class="button1 mr-10 mt-10">demo</button>
             <button class="button2 mr-10 mt-10">demo</button>
+            <button class="buttondelete mr-10 mt-10">Delete</button>
              <button type="submit" @click="submitData($event)" class="btn btn-primary mt-10">Submit</button>
             </form>
         </div>
