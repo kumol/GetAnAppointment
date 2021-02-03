@@ -26,17 +26,32 @@
                         <div class="signupnotch"></div>
                         <div>
                           <form class="form-group">
-                            <label for="doctor">UserName</label>
-                            <input type="text" name="username" class="input" id=""/>
+                            <label for="number">Number</label>
+                            <input type="text" :v-model="number" name="number" class="input" id=""/>
                           </form>
+                          <div>
+                            <button @click="logIn()" >Login</button>
+                          </div>
                         </div>
                     </div>
           </li>
           <li class="dropdown"> <button class="button2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LogIn</button>
             <div class="dropdown-menu signupmenu" aria-labelledby="dropdownMenuLink">
-                        <div class="signupnotch"></div>
-                        
-                    </div>
+              <div class="signupnotch"></div>
+              <form>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" :v-model="name" name="name" class="input" id=""/>
+                </div>
+                <div class="form-group">
+                  <label for="number">Number</label>
+                  <input type="text" :v-model="number" name="number" class="input" id=""/>
+                </div>
+              </form>
+              <div>
+                <button @click="logIn()" >Login</button>
+              </div>
+            </div>
           </li>
         </ul>
       </nav>
@@ -54,9 +69,36 @@
 import Footer from "./components/Layout/Footer"
 
 export default {
-  name: 'App',
+  number:"",
+  name:"",
   components: {
     Footer
+  },
+  methods:{
+    logIn(event){
+      event.preventDefault();
+      fetch("http://localhost:8000/api/user/login",{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:this.number
+            }).then((response)=>{
+                console.log(response);
+            })
+    },
+    join(event){
+      event.preventDefault();
+      fetch("http://localhost:8000/api/user/save",{
+        method:"POST",
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({name:this.name,number:this.number,accountType:5})
+      }).then((response)=>{
+        console.log(response);
+      })
+    }
   }
 }
 </script>
