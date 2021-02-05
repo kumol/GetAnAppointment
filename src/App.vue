@@ -18,7 +18,8 @@
     </nav>
     <div class="col-md-4 col-lg-3 signupdiv">
       <nav>
-        <ul class="signuplogin">
+        <div >
+          <ul v-if="user==null" class="signuplogin">
           <li class="dropdown"><button class="button2 mr-10" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SignUp</button>
             <div class="dropdown-menu signupmenu" aria-labelledby="dropdownMenuLink">
                 <div class="signupnotch"></div>
@@ -55,8 +56,20 @@
               </div>
             </div>
           </li>
-          <li>{{name}}</li>
         </ul>
+        </div>
+        <div v-if="user!=null">
+          <ul class="signuplogin">
+          <li class="dropdown"> <img width="60" height="40" src="./assets/userlogo.png" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+            <div class="dropdown-menu signupmenu" aria-labelledby="dropdownMenuLink">
+              <div class="signupnotch"></div>
+              <div>
+                <a class="dropdown-item" @click="logOut($event)">Log Out</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        </div>
       </nav>
     </div>
   </div>
@@ -80,6 +93,7 @@ export default {
     return{
       number:"",
       name:"",
+      user:null,
     }
   },
   methods:{
@@ -120,7 +134,19 @@ export default {
       }).catch(err=>{
         console.log(err);
       })
+    },
+    getUser(){
+      this.user=JSON.parse(localStorage.getItem("user"));
+      console.log(this.user);
+    },
+    logOut(event){
+      event.preventDefault();
+      localStorage.removeItem("user");
+      this.getUser();
     }
+  },
+  mounted(){
+    this.getUser();
   }
 }
 </script>
