@@ -19,7 +19,7 @@
     <div class="col-md-4 col-lg-3 signupdiv">
       <nav>
         <div >
-          <ul v-if="user==null" class="signuplogin">
+          <ul v-if="!islogIn" class="signuplogin">
           <li class="dropdown"><button class="button2 mr-10" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SignUp</button>
             <div class="dropdown-menu signupmenu" aria-labelledby="dropdownMenuLink">
                 <div class="signupnotch"></div>
@@ -58,13 +58,13 @@
           </li>
         </ul>
         </div>
-        <div v-if="user!=null">
+        <div v-if="islogIn">
           <ul class="signuplogin">
-          <li class="dropdown"> <img width="60" height="40" src="./assets/userlogo.png" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
-            <div class="dropdown-menu signupmenu" aria-labelledby="dropdownMenuLink">
-              <div class="signupnotch"></div>
-              <div>
-                <a class="dropdown-item" @click="logOut($event)">Log Out</a>
+          <li class="dropdown" style="cursor:pointer;"> <img width="60" height="40" src="./assets/userlogo.png" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+            <div class="dropdown-menu userdropdownmenu" aria-labelledby="dropdownMenuLink">
+              <div class="dropdownnotch"></div>
+              <div class="dropdownitem" @click="logOut($event)">
+                logOut
               </div>
             </div>
           </li>
@@ -94,12 +94,20 @@ export default {
       number:"",
       name:"",
       user:null,
+      islogIn:true
+    }
+  },
+  computed:{
+    
+  },
+  watch:{
+    user:function(){
+      this.islogIn = this.user == null ? false:true;
     }
   },
   methods:{
     async logIn(event){
       event.preventDefault()
-      console.log("go");
       fetch("http://localhost:8000/api/user/login",{
           method: "POST",
           headers: {
@@ -107,14 +115,10 @@ export default {
           },
           body:JSON.stringify({number:this.number})
       }).then((response)=>{
-        //localStorage.setItem("user",JSON.stringify(response));
-        //console.log(response);
         return response.json();
       }).then(json=>{
         localStorage.setItem("user",JSON.stringify(json));
-        let appUser = localStorage.getItem('user');
-        console.log(json);
-        console.log(appUser);
+        this.user = json;
       }).catch(err=>{
         console.log(err);
       })
@@ -129,24 +133,25 @@ export default {
         },
         body:JSON.stringify({name:this.name,number:this.number,accountType:5})
       }).then((response)=>{
-        console.log(response.status);
-        console.log(response);
+        return response.json();
+      }).then(result=>{
+        console.log(result);
       }).catch(err=>{
         console.log(err);
       })
     },
     getUser(){
-      this.user=JSON.parse(localStorage.getItem("user"));
-      console.log(this.user);
+      return JSON.parse(localStorage.getItem("user"));
     },
     logOut(event){
       event.preventDefault();
       localStorage.removeItem("user");
-      this.getUser();
-    }
+      this.user=null;
+    },
   },
   mounted(){
-    this.getUser();
+    this.user = this.getUser();
+    this.islogIn = this.user==null? false:true;
   }
 }
 </script>
