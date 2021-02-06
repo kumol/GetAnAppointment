@@ -45,7 +45,7 @@
                 <input class="form-control" v-model="date" type="date" placeholder="date input">
             </div> -->
 
-            <button class="button mr-10 mt-10">Go</button>
+            <button @click="takeAppoint($event)" class="button mr-10 mt-10">Appoint</button>
             <button class="button1 mr-10 mt-10">demo</button>
             <button class="button2 mr-10 mt-10">demo</button>
             <button class="buttondelete mr-10 mt-10">Delete</button>
@@ -102,18 +102,41 @@ export default {
             event.preventDefault();
             console.log(this.doctor._id);
         },
+        takeAppoint(event){
+            event.preventDefault();
+            
+            let user = JSON.parse(localStorage.getItem("user"));
+            console.log(user)
+            let appointData = {
+                date:this.date,
+                organization:this.organization,
+                doctor:this.doctor,
+                time:this.date,
+                user:user._id
+            }
+            fetch("http://localhost:8000/api/appointment/save",{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify(appointData)
+            }).then((response)=>{
+                return response.json();
+            }).then(body=>{
+                this.user = body;
+            }).catch(err=>{
+                console.log(err);
+            })
+        },
         selectDoctor(event,doctor){
             event.preventDefault();
             this.doctor = doctor._id;
             this.doctorName = doctor.name;
-            console.log(doctor);
         },
         selectOrg(event,org){
             event.preventDefault();
-            console.log("selected ")
             this.organization = org._id;
             this.orgName = org.name;
-            console.log(org);
         }
     },
     computed: {
