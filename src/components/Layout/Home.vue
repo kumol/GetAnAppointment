@@ -71,7 +71,8 @@ export default {
             date:Date,
             time:Date,
             sldf:"#2195F3",
-            color:"#5ca5e0e0"
+            color:"#5ca5e0e0",
+            appointment:{}
         }
     },
     methods:{
@@ -104,9 +105,7 @@ export default {
         },
         takeAppoint(event){
             event.preventDefault();
-            
             let user = JSON.parse(localStorage.getItem("user"));
-            console.log(user)
             let appointData = {
                 date:this.date,
                 organization:this.organization,
@@ -123,7 +122,7 @@ export default {
             }).then((response)=>{
                 return response.json();
             }).then(body=>{
-                this.user = body;
+                console.log(body);
             }).catch(err=>{
                 console.log(err);
             })

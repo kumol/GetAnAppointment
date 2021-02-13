@@ -7,6 +7,7 @@ import Home from '../components/Layout/Home'
 import About from '../components/Layout/About'
 import Organizations from "../components/Organization/Organizations"
 import AddOrganization from "../components/Organization/AddOrganization"
+import Organization from "../components/Organization/Organization"
 const routes = [
     {
       path: "/",
@@ -32,6 +33,11 @@ const routes = [
       path: "/organization",
       name: "Organization",
       component: Organizations
+    },
+    {
+      path: "/organization/:id",
+      name: "Organization",
+      component: Organization
     },
     {
       path: "/organization/new",
