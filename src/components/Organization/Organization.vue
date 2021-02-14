@@ -47,6 +47,7 @@ export default {
     mounted() {
        this.getOrganization();
        orgService.getDoctorByOrganization(this.$route.params.id);
+       orgService.getOrganizationDetails(this.$route.params.id);
     },
 }
 </script>
