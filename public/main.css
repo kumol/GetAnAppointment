@@ -276,3 +276,24 @@
 .mr-10{
   margin-right: 10px;
 }
+
+.m-0{
+  margin:0px !important;
+}
+
+.p-0{
+  padding: 0px !important;
+}
+
+.p-10{
+  padding: 10px !important;
+}
+
+.p-20{
+  padding: 20px !important;
+}
+
+.p-15{
+  padding:15px;
+}
+
