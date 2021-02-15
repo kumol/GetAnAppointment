@@ -5,21 +5,18 @@ export default class OrganizationService{
         console.log(id);
         axios.get(`http://localhost:8000/api/doctor/organization/${id}`).then((response)=>{
             if(response.status == 200){
-                console.log("success");
-                console.log(response.data.doctors);
+                return response.data;
             }else{
                 console.log("error occured");
             }
         });
     }
 
-    getOrganizationDetails = (id) =>{
-        axios.get(`http://localhost:8000/api/organization/${id}`).then(result=>{
-            if(result.status == 200){
-                console.log(result.data);
-            }else{
-                console.log("error occured");
-            }
-        });
+    getOrganizationDetails = async (id) => {
+        try{
+            return await axios.get(`http://localhost:8000/api/organization/${id}`);
+        }catch(error){
+            return error;
+        }
     }
 }

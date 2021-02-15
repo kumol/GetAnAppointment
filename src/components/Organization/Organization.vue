@@ -4,7 +4,7 @@
             col-md-2
         </div>
         <div class="col-md-6 p-0">
-            colmd 8
+            <p>{{organization.name}}</p>
         </div>
         <div class="col-md-3 p-15" style="background-color:white">
             <div class="div-header">
@@ -28,7 +28,10 @@ export default {
     name:"Organizations",
     data(){
         return{
-            organizations:[]
+            organizations:[],
+            organization:{},
+            org:{},
+            doctors:[]
         }
     },
     methods:{
@@ -46,8 +49,17 @@ export default {
     }, 
     mounted() {
        this.getOrganization();
-       orgService.getDoctorByOrganization(this.$route.params.id);
-       orgService.getOrganizationDetails(this.$route.params.id);
+       this.doctors = orgService.getDoctorByOrganization(this.$route.params.id).then(response=>{
+           //this.doctors = response;
+           console.log(response);
+       }).catch(err=>{
+           console.log(err);
+       });
+       orgService.getOrganizationDetails(this.$route.params.id).then(response=>{
+           this.organization = response.data.organization;
+       }).catch(error=>{
+           console.log(error);
+       });
     },
 }
 </script>
