@@ -19,4 +19,14 @@ export default class OrganizationService{
             return error;
         }
     }
+
+    getAllDoctor = async ()=>{
+        try{
+            return axios.get(
+                "http://localhost:8000/api/doctor/all"
+            );
+        }catch(error){
+            return error;
+        }
+    }
 }

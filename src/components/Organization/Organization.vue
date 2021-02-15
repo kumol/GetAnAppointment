@@ -13,7 +13,7 @@
             </div>
             <div>
                 <ul>
-                    <li></li>
+                    <li v-for="doctor in doc" :key="doctor._id">{{doctor.name}}</li>
                 </ul>
             </div>
         </div>
@@ -31,7 +31,8 @@ export default {
             organizations:[],
             organization:{},
             org:{},
-            doctors:[]
+            doctors:[],
+            doc:[]
         }
     },
     methods:{
@@ -49,12 +50,20 @@ export default {
     }, 
     mounted() {
        this.getOrganization();
-       this.doctors = orgService.getDoctorByOrganization(this.$route.params.id).then(response=>{
-           //this.doctors = response;
-           console.log(response);
-       }).catch(err=>{
-           console.log(err);
-       });
+       this.doctors = orgService.getDoctorByOrganization(this.$route.params.id)
+    //    .then(response=>{
+    //        this.doctors = response;
+    //        console.log(response);
+    //    }).catch(err=>{
+    //        console.log(err);
+    //    });
+         this.doc = orgService.getAllDoctor().then(response=>{
+            this.doc = response.data.result;
+            console.log(this.doc);
+            console.log(response.data.result);
+        }).catch(error=>{
+            console.log(error);
+        })
        orgService.getOrganizationDetails(this.$route.params.id).then(response=>{
            this.organization = response.data.organization;
        }).catch(error=>{
