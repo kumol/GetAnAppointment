@@ -74,6 +74,9 @@
     </div>
   </div>
   <div class="body">
+    <div>
+      hello 
+    </div>
     <router-view />
   </div>
   

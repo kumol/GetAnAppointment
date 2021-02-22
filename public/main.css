@@ -297,3 +297,19 @@
   padding:15px;
 }
 
+
+.tag-button{
+  font-size: 10px;
+  padding: 4px 5px;
+  background: #72ec72;
+  font-weight: 700;
+  float: right;
+  border: 0px;
+  padding: 4px 20px;
+  border-radius: 4px
+}
+
+.tag-button:focus{
+  outline: none !important;
+  border: none !important;
+}
