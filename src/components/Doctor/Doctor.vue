@@ -26,11 +26,17 @@ export default {
         }
     },
     mounted(){
-        doctorService.getDoctorById(this.$route.params.id).then(result=>{
-            this.doctor = result;
-        }).catch(error=>{
-            console.log(error);
-        })
+        this.getDoctorById(this.$route.params.id);
+    },
+    methods:{
+        getDoctorById(id){
+            doctorService.getDoctorById(id).then(response=>{
+                if(response){
+                    console.log(response);
+                    this.doctor = response.data.doctor;
+                }
+            });
+        }
     }
 }
 </script>
