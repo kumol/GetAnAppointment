@@ -10,8 +10,22 @@
 </template>
 
 <script>
+import DoctorService from "../../services/doctor/doctor";
+const doctorService = new DoctorService();
 export default {
-    name:"Doctor"
+    name:"Doctor",
+    data(){
+        return {
+            doctor:{}
+        }
+    },
+    mounted(){
+        doctorService.getDoctorById(this.$route.params.id).then(result=>{
+            this.doctor = result;
+        }).catch(error=>{
+            console.log(error);
+        })
+    }
 }
 </script>
 
