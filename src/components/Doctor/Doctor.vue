@@ -1,10 +1,16 @@
 <template>
-    <div class="container">
-        <div class="col-md-3 col-sm-4">
-            profile
+    <div class="row m-0">
+        <div class="col-md-3 col-sm-4 p-10">
+            <div class="m-10 bg-white">
+                profile
+            </div>
+            
         </div>
-        <div class="col-md-9 col-sm-8">
-            details
+        <div class="col-md-9 col-sm-8 p-10">
+            <div class=" m-10 bg-white ">
+                details
+            </div>
+            
         </div>
     </div>
 </template>
