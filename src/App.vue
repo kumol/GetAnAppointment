@@ -9,8 +9,7 @@
         <ul class="navbar-nav">
           <li class="nav-item active"><router-link class="nav-link nav-title" to="/">Home</router-link> </li>
           <li class="nav-item"><router-link class="nav-link nav-title" to="/doctor">Doctor </router-link></li>
-          <li class="nav-item"><router-link class="nav-link nav-title" to="/add">Add New Doctor</router-link></li>
-          <li class="nav-item"><router-link class="nav-link nav-title" to="/doctor">Doctor </router-link></li>
+          <li class="nav-item"><router-link class="nav-link nav-title" to="/doctor/add">Add New Doctor</router-link></li>
           <li class="nav-item"><router-link class="nav-link nav-title" to="/organization/new">New Organization </router-link></li>
           <li class="nav-item"><router-link class="nav-link nav-title" to="/organization">Organization </router-link></li>
         </ul>
@@ -74,9 +73,6 @@
     </div>
   </div>
   <div class="body">
-    <div>
-      hello 
-    </div>
     <router-view />
   </div>
   

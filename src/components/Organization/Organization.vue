@@ -9,7 +9,6 @@
         <div class="col-md-3 p-15" style="background-color:white">
             <div class="div-header">
                 <span>Doctors</span> <span><button class="tag-button">Add</button></span>
-
             </div>
             <div>
                 <ul>

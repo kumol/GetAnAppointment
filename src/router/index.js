@@ -8,6 +8,7 @@ import About from '../components/Layout/About'
 import Organizations from "../components/Organization/Organizations"
 import AddOrganization from "../components/Organization/AddOrganization"
 import Organization from "../components/Organization/Organization"
+import Doctor from "../components/Doctor/Doctor"
 const routes = [
     {
       path: "/",
@@ -21,11 +22,16 @@ const routes = [
     },
     {
         path: "/doctor",
-        name: "Doctor",
+        name: "DoctorList",
         component: DoctorList
     },
     {
-        path: "/add",
+      path:"/doctor/:id",
+      name:"Doctor",
+      component: Doctor
+    },
+    {
+        path: "/doctor/add",
         name: "Add New Doctor",
         component: AddDoctor
     },

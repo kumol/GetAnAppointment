@@ -1,5 +1,4 @@
 <template>
-    
     <div>
         <table class="table table-hover">
             <thead>
@@ -13,8 +12,8 @@
             </thead>
             <tbody>
                 <tr v-for="doctor in doctors" :key="doctor._id">
-                    <th scope="row">{{doctor.doctorId}}</th>
-                    <td>{{doctor.name}}</td>
+                    <th scope="row"> {{doctor.doctorId}}</th>
+                    <td> <a :href="'/doctor/' + doctor._id">{{doctor.name}}</a> </td>
                     <td>{{doctor.email}}</td>
                     <td>{{doctor.details}}</td>
                     <td><button @click="selectForDelete(doctor._id)" class="btn btn-danger">Delete</button></td>
@@ -34,7 +33,7 @@ export default {
         }
     },
     methods:{
-        selectForDelete(id){
+        selectForDelete(event,id){
             event.preventDefault();
             console.log(id)
             console.log(configapi);

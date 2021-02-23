@@ -32,7 +32,7 @@ export default {
         }
     },
     methods:{
-        selectForDelete(id){
+        selectForDelete(event,id){
             event.preventDefault();
             axios.delete(configapi+`api/organization/delete/${id}`)
             .then(response => {
