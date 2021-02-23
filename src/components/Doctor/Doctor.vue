@@ -22,7 +22,8 @@ export default {
     name:"Doctor",
     data(){
         return {
-            doctor:{}
+            doctor:{},
+            appointments:[]
         }
     },
     mounted(){
@@ -34,6 +35,7 @@ export default {
                 if(response){
                     console.log(response);
                     this.doctor = response.data.doctor;
+                    this.appointments = response.data.appointments;
                 }
             });
         }
