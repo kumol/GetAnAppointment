@@ -1,7 +1,7 @@
 <template>
     <div class="row m-0">
-        <div class="col-md-3 col-sm-4 p-10">
-            <div class="m-10 bg-white">
+        <div class="col-md-3 col-sm-4 p-20">
+            <div class="bg-white">
                 <div style="width:100%;">
                     <img style="width:100% !important;" src="https://clinicalnotebook.com/wp-content/uploads/2015/04/Doctor-Profile-Pic-Example.png" alt="">
                 </div>
@@ -14,17 +14,35 @@
             </div>
             
         </div>
-        <div class="col-md-9 col-sm-8 p-10">
+        <div class="col-md-9 col-sm-8 p-20">
             <div class="row m-0">
-                    <div class="col-md-3 col-sm-3 bg-white p-0">col3</div>
-                    <div class="col-md-3 col-sm-3 bg-white p-0">col3</div>
-                    <div class="col-md-3 col-sm-3 bg-white p-0">col3</div>
-                    <div class="col-md-3 col-sm-3 bg-white p-0">col3</div>
+                <div class="col-md-3 col-sm-3 p-0">
+                    <div class="bg-white pr-15">
+                        col-3
+                    </div>
                 </div>
-                <div class="row m-0 bg-white" style="margin-top:20px!important">
-                    hello
+                <div class="col-md-3 col-sm-3 pr-15">
+                    <div class="bg-white">col-3</div>
                 </div>
-            <div class="m-10 bg-white ">
+                <div class="col-md-3 col-sm-3 bg-white p-0">col3</div>
+                <div class="col-md-3 col-sm-3 bg-white p-0">col3</div>
+            </div>
+            <div class="mlr-0 mt-10 p-15 row bg-white ">
+                
+                <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" >Chember</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Appointments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ">Details</a>
+                </li>
+                </ul>
                 
             </div>
         </div>

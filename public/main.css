@@ -271,10 +271,15 @@
 }
 
 .mt-10{
-  margin-top: 10px;
+  margin-top: 10px !important;
 }
 .mr-10{
   margin-right: 10px;
+}
+
+.mlr-0{
+  margin-left: 0!important;
+  margin-right: 0!important;
 }
 
 .m-0{
@@ -283,6 +288,14 @@
 
 .m-10{
   margin:10px !important;
+}
+
+.m-15{
+  margin: 15px !important;
+}
+
+.m-20{
+  margin: 20px !important;
 }
 
 .p-0{
@@ -295,6 +308,18 @@
 
 .p-20{
   padding: 20px !important;
+}
+
+.pr-10{
+  padding-right: 10px !important;
+}
+
+.pr-15{
+  padding-right: 15px !important;
+}
+
+.pr-20{
+  padding-right: 20px !important;
 }
 
 .p-15{
