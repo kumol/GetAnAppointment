@@ -321,3 +321,8 @@
 .bg-white{
   background-color: white;
 }
+
+.hr{
+  margin: 0px 0px 5px 0px !important;
+  background-color: #eeeeee !important;
+}
